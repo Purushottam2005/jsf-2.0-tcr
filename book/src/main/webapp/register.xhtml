@@ -1,10 +1,64 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
-</head>
-<body>
-
-</body>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+	<title>A Simple JavaServer Faces Registration Application</title>
+</h:head>
+<h:body>
+	<h:form>
+		<h2>JSF Registration</h2>
+		<h4>Registration Form</h4>
+		<table>
+			<tr>
+				<td>First Name:</td>
+				<td><h:inputText label="First Name" id="fname"
+						value="#{userBean.firstName}" required="true" /> <h:message
+						for="fname" /></td>
+			</tr>
+			<tr>
+				<td>Last Name:</td>
+				<td><h:inputText label="Last Name" id="lname"
+						value="#{userBean.lastName}" required="true" /> <h:message
+						for="lname" /></td>
+			</tr>
+			<tr>
+				<td>Sex:</td>
+				<td><h:selectOneRadio label="Sex" id="sex"
+						value="#{userBean.sex}" required="true">
+						<f:selectionItem itemLabel="Male" itemValue="male" />
+						<f:selectionItem itemLabel="Female" itemValue="female" />
+					</h:selectOneRadio> <h:message for="sex" /></td>
+			</tr>
+			<tr>
+				<td>Date of Birth:</td>
+				<td><h:inputText label="Date of Birth" id="dob"
+						value="#{userBean.dob}" required="true">
+					</h:inputText> (mm-dd-yy) <h:message for="dob" /></td>
+			</tr>
+			<tr>
+				<td>Email Address:</td>
+				<td><h:inputText label="Email Address" id="email"
+						value="#{userBean.email}" required="true"
+						validator="#{userBean.validateEmail}" /> <h:message for="email" /></td>
+			</tr>
+			<tr>
+				<td>Service Level:</td>
+				<td><h:selectOneRadio label="Service Level"
+						value="#{userBean.serviceLevel}">
+						<f:selectionItem itemLabel="Medium" itemValue="medium" />
+						<f:selectionItem itemLabel="Basic" itemValue="basic" />
+						<f:selectionItem itemLabel="Premium" itemValue="premium" />
+					</h:selectOneRadio></td>
+			</tr>
+		</table>
+		<p>
+			<h:messages />
+		</p>
+		<p>
+			<h:commandButton value="Register" action="confirm" />
+		</p>
+	</h:form>
+</h:body>
 </html>

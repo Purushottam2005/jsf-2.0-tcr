@@ -1,9 +1,9 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"
+<html
+	xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:p="http://primefaces.org/ui">
+	xmlns:f="http://java.sun.com/jsf/core">
 <h:head>
 	<title>A Simple JavaServer Faces Registration Application</title>
 </h:head>
@@ -14,43 +14,68 @@
 		<table>
 			<tr>
 				<td>First Name:</td>
-				<td><h:inputText label="First Name" id="fname"
-						value="#{userBean.firstName}" required="true" /> <h:message
-						for="fname" /></td>
+				<td><h:inputText
+						label="First Name"
+						id="fname"
+						value="#{userBean.firstName}"
+						required="true" /> <h:message for="fname" /></td>
 			</tr>
 			<tr>
 				<td>Last Name:</td>
-				<td><h:inputText label="Last Name" id="lname"
-						value="#{userBean.lastName}" required="true" /> <h:message
-						for="lname" /></td>
+				<td><h:inputText
+						label="Last Name"
+						id="lname"
+						value="#{userBean.lastName}"
+						required="true" /> <h:message for="lname" /></td>
 			</tr>
 			<tr>
 				<td>Sex:</td>
-				<td><h:selectOneRadio label="Sex" id="sex"
-						value="#{userBean.sex}" required="true">
-						<f:selectionItem itemLabel="Male" itemValue="male" />
-						<f:selectionItem itemLabel="Female" itemValue="female" />
+				<td><h:selectOneRadio
+						label="Sex"
+						id="sex"
+						value="#{userBean.sex}"
+						required="true">
+						<f:selectItem
+							itemLabel="Male"
+							itemValue="male" />
+						<f:selectItem
+							itemLabel="Female"
+							itemValue="female" />
 					</h:selectOneRadio> <h:message for="sex" /></td>
 			</tr>
 			<tr>
 				<td>Date of Birth:</td>
-				<td><h:inputText label="Date of Birth" id="dob"
-						value="#{userBean.dob}" required="true">
-					</h:inputText> (mm-dd-yy) <h:message for="dob" /></td>
+				<td><h:inputText
+						label="Date of Birth"
+						id="dob"
+						value="#{userBean.dob}"
+						required="true">
+						<f:convertDateTime pattern="dd-MM-yy" />
+					</h:inputText> (dd-mm-yy) <h:message for="dob" /></td>
 			</tr>
 			<tr>
 				<td>Email Address:</td>
-				<td><h:inputText label="Email Address" id="email"
-						value="#{userBean.email}" required="true"
+				<td><h:inputText
+						label="Email Address"
+						id="email"
+						value="#{userBean.email}"
+						required="true"
 						validator="#{userBean.validateEmail}" /> <h:message for="email" /></td>
 			</tr>
 			<tr>
 				<td>Service Level:</td>
-				<td><h:selectOneRadio label="Service Level"
+				<td><h:selectOneRadio
+						label="Service Level"
 						value="#{userBean.serviceLevel}">
-						<f:selectionItem itemLabel="Medium" itemValue="medium" />
-						<f:selectionItem itemLabel="Basic" itemValue="basic" />
-						<f:selectionItem itemLabel="Premium" itemValue="premium" />
+						<f:selectItem
+							itemLabel="Medium"
+							itemValue="medium" />
+						<f:selectItem
+							itemLabel="Basic"
+							itemValue="basic" />
+						<f:selectItem
+							itemLabel="Premium"
+							itemValue="premium" />
 					</h:selectOneRadio></td>
 			</tr>
 		</table>
@@ -58,7 +83,9 @@
 			<h:messages />
 		</p>
 		<p>
-			<h:commandButton value="Register" action="confirm" />
+			<h:commandButton
+				value="Register"
+				action="confirm" />
 		</p>
 	</h:form>
 </h:body>

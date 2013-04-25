@@ -1,10 +1,53 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
-</head>
-<body>
-
-</body>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+	<title>A Simple JavaServer Faces Registration Application</title>
+</h:head>
+<h:body>
+	<h:form>
+		<h2>JSF Registration</h2>
+		<h4>Registration Form</h4>
+		<table>
+			<tr>
+				<td>First Name:</td>
+				<td><h:outputText value="#{userBean.firstName}" /></td>
+			</tr>
+			<tr>
+				<td>Last Name:</td>
+				<td><h:outputText value="#{userBean.lastName}" /></td>
+			</tr>
+			<tr>
+				<td>Sex:</td>
+				<td><h:outputText value="#{userBean.sex}" /></td>
+			</tr>
+			<tr>
+				<td>Date of Birth:</td>
+				<td><h:outputText value="#{userBean.dob}" /></td>
+			</tr>
+			<tr>
+				<td>Email Address:</td>
+				<td><h:outputText value="#{userBean.email}" /></td>
+			</tr>
+			<tr>
+				<td>Service Level:</td>
+				<td><h:outputText value="#{userBean.serviceLevel}" /></td>
+			</tr>
+		</table>
+		<p>
+			<h:messages />
+		</p>
+		<p>
+			<h:commandButton
+				value="Edit"
+				action="register" />
+			<h:commandButton
+				value="Confirm"
+				action="#{userBean.addConfirmedUser}" />
+		</p>
+	</h:form>
+</h:body>
 </html>

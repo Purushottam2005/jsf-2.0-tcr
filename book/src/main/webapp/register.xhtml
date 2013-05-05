@@ -2,91 +2,101 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html
 	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core">
-<h:head>
-	<title>A Simple JavaServer Faces Registration Application</title>
-</h:head>
-<h:body>
-	<h:form>
-		<h2>JSF Registration</h2>
-		<h4>Registration Form</h4>
-		<table>
-			<tr>
-				<td>First Name:</td>
-				<td><h:inputText
-						label="First Name"
-						id="fname"
-						value="#{userBean.firstName}"
-						required="true" /> <h:message for="fname" /></td>
-			</tr>
-			<tr>
-				<td>Last Name:</td>
-				<td><h:inputText
-						label="Last Name"
-						id="lname"
-						value="#{userBean.lastName}"
-						required="true" /> <h:message for="lname" /></td>
-			</tr>
-			<tr>
-				<td>Sex:</td>
-				<td><h:selectOneRadio
-						label="Sex"
-						id="sex"
-						value="#{userBean.sex}"
-						required="true">
-						<f:selectItem
-							itemLabel="Male"
-							itemValue="male" />
-						<f:selectItem
-							itemLabel="Female"
-							itemValue="female" />
-					</h:selectOneRadio> <h:message for="sex" /></td>
-			</tr>
-			<tr>
-				<td>Date of Birth:</td>
-				<td><h:inputText
-						label="Date of Birth"
-						id="dob"
-						value="#{userBean.dob}"
-						required="true">
-						<f:convertDateTime pattern="dd-MM-yy" />
-					</h:inputText> (dd-mm-yy) <h:message for="dob" /></td>
-			</tr>
-			<tr>
-				<td>Email Address:</td>
-				<td><h:inputText
-						label="Email Address"
-						id="email"
-						value="#{userBean.email}"
-						required="true"
-						validator="#{userBean.validateEmail}" /> <h:message for="email" /></td>
-			</tr>
-			<tr>
-				<td>Service Level:</td>
-				<td><h:selectOneRadio
-						label="Service Level"
-						value="#{userBean.serviceLevel}">
-						<f:selectItem
-							itemLabel="Medium"
-							itemValue="medium" />
-						<f:selectItem
-							itemLabel="Basic"
-							itemValue="basic" />
-						<f:selectItem
-							itemLabel="Premium"
-							itemValue="premium" />
-					</h:selectOneRadio></td>
-			</tr>
-		</table>
-		<p>
-			<h:messages />
-		</p>
-		<p>
-			<h:commandButton
-				value="Register"
-				action="confirm" />
-		</p>
-	</h:form>
-</h:body>
+<body>
+	<ui:composition template="/lnf-template.xhtml">
+		<ui:define name="title">
+		JavaServer Faces Virtual Trainer Application
+		Registration
+	</ui:define>
+		<ui:define name="body">
+			<h:form>
+				<table width="70%">
+					<tr>
+						<td>First Name:</td>
+						<td><h:inputText
+								label="First Name"
+								id="fname"
+								value="#{userBean.firstName}"
+								required="true" /> <h:message for="fname" /></td>
+					</tr>
+					<tr>
+						<td>Last Name:</td>
+						<td><h:inputText
+								label="Last Name"
+								id="lname"
+								value="#{userBean.lastName}"
+								required="true" /> <h:message for="lname" /></td>
+					</tr>
+					<tr>
+						<td>Sex:</td>
+						<td><h:selectOneRadio
+								label="Sex"
+								id="sex"
+								value="#{userBean.sex}"
+								required="true">
+								<f:selectItem
+									itemLabel="Male"
+									itemValue="male" />
+								<f:selectItem
+									itemLabel="Female"
+									itemValue="female" />
+							</h:selectOneRadio> <h:message for="sex" /></td>
+					</tr>
+					<tr>
+						<td>Date of Birth:</td>
+						<td><h:inputText
+								label="Date of Birth"
+								id="dob"
+								value="#{userBean.dob}"
+								required="true">
+								<f:convertDateTime pattern="dd-MM-yy" />
+							</h:inputText> (dd-mm-yy) <h:message for="dob" /></td>
+					</tr>
+					<tr>
+						<td>Email Address:</td>
+						<td><h:inputText
+								label="Email Address"
+								id="email"
+								value="#{userBean.email}"
+								required="true"
+								validator="#{userBean.validateEmail}" /> <h:message for="email" /></td>
+					</tr>
+					<tr>
+						<td>Service Level:</td>
+						<td><h:selectOneRadio
+								label="Service Level"
+								value="#{userBean.serviceLevel}">
+								<f:selectItem
+									itemLabel="Medium"
+									itemValue="medium" />
+								<f:selectItem
+									itemLabel="Basic"
+									itemValue="basic" />
+								<f:selectItem
+									itemLabel="Premium"
+									itemValue="premium" />
+							</h:selectOneRadio></td>
+					</tr>
+				</table>
+				<p>
+					<h:messages />
+				</p>
+				<p>
+					<h:commandButton
+						value="Register"
+						action="confirm" />
+				</p>
+				<p>
+					<h:commandButton
+						value="Cancel"
+						action="main"
+						immediate="true" />
+				</p>
+			</h:form>
+		</ui:define>
+	</ui:composition>
+</body>
 </html>
